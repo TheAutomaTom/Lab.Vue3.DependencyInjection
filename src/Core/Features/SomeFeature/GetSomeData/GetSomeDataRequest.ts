@@ -1,4 +1,4 @@
-export class SomeRequest{
+export class GetSomeDataRequest{
 
   input: string;
 

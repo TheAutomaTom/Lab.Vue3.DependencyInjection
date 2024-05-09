@@ -1,7 +1,7 @@
-import type { SomeRequest } from "../Dtos/SomeRequest";
-import type { SomeResult } from "../Dtos/SomeResult";
+import type { GetSomeDataRequest } from "../Features/SomeFeature/GetSomeData/GetSomeDataRequest";
+import type { GetSomeDataResult } from "../Features/SomeFeature/GetSomeData/GetSomeDataResult";
 
 export interface ISomeRepository{
-  TryGetSomeData(request: SomeRequest): Awaited<Promise<SomeResult>>;
+  TryGetSomeData(request: GetSomeDataRequest): Awaited<Promise<GetSomeDataResult>>;
 
 }

@@ -1,4 +1,4 @@
-export class SomeResult{
+export class GetSomeDataResult{
 
   data: string;
 
