@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../Views/HomeView.vue";
 
-const router = createRouter({
+console.log(`Router initializing`);
+
+const router = createRouter({  
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {

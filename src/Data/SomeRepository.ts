@@ -9,6 +9,7 @@ export class SomeRepository implements ISomeRepository{
 
   }
   TryGetSomeData(request: GetSomeDataRequest): GetSomeDataResult {
+    console.log(`SomeRepository.TryGetSomeData`);
     
     const chars = request.input.split("");
     chars.reverse();

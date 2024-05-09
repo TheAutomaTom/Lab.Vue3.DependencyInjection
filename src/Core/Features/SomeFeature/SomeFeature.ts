@@ -18,9 +18,11 @@ export class SomeFeature extends FeatureBase<SomeStore>{
   }){
     super(store);
     this.getSomeDataUseCase = getSomeDataUseCase;
+    console.log(`SomeFeature.getSomeData`);
   }
 
   getSomeData = async (request: GetSomeDataRequest): Promise<GetSomeDataResult> => {
+    console.log(`SomeFeature.getSomeData`);
 
     const failureOrSuccess = await this.getSomeDataUseCase.handle(request);
 
