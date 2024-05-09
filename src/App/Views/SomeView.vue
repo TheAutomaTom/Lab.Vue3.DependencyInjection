@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useSomeState } from "../../Core/Features/SomeFeature/SomeStore";
-import { DependencyInjector } from "../Config/DependencyInjector";
+import { DependencyInjector } from "../Infra/DependencyInjector";
 import { GetSomeDataRequest } from "@/Core/Features/SomeFeature/GetSomeData/GetSomeDataRequest";
 
 const some$ = useSomeState();
