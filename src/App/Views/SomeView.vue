@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useSomeStore } from "../../Core/Features/SomeFeature/SomeStore";
-import { DependencyInjector } from "../Infra/DependencyInjector";
+import { DependencyFactory } from "../Infra/DependencyFactory";
 import { GetSomeDataRequest } from "@/Core/Features/SomeFeature/GetSomeData/GetSomeDataRequest";
 
 console.warn(`BEGIN SomeView initializing`);
 
 // const some$ = useSomeStore();
-const someFeatures = DependencyInjector.ProvideSomeFeatures();
+const someFeatureCollection = DependencyFactory.SomeFeatureCollectionImplementation();
 
 const someOutput = ref("Please provide input.");
 const someInput = ref("");
@@ -24,7 +23,7 @@ const tryGetData = async() => {
   const request = new GetSomeDataRequest(someInput.value);
 
   // var result = await someFeature.getSomeData(request);
-  var result = await someFeatures.getSomeDataUseCase.handle(request);
+  var result = await someFeatureCollection.getSomeDataHandler.handle(request);
   someOutput.value = result.data;
 }
 

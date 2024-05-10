@@ -1,39 +1,25 @@
-import type { ISomeRepository } from "../../Interfaces/ISomeRepository"
-// import { GetSomeDataRequest } from "./GetSomeData/GetSomeDataRequest";
-// import { GetSomeDataResult } from "./GetSomeData/GetSomeDataResult";
+import { ref } from "vue";
 import { defineStore } from "pinia";
 
-interface State{
-  // GetSomeData: (input: string) => Awaited<Promise<GetSomeDataResult>>;
-  // LogInit: () => void;
-  Repo : ISomeRepository;
+export interface ISomeStore{
+  SaveData: (input: string) => void;
+
 }
 
-export const useSomeStore = defineStore( "SomeState", ():State => {
+export const useSomeStore = defineStore( "SomeStore", ():ISomeStore => {
 
   console.log(`SomeStore.defineStore`);
   
-  const Repo = {} as ISomeRepository;
+  const SomeData = ref("");
 
-  // const LogInit = (): void =>{
-  //   console.log(`SomeStore.LogInit`)
-  // };
-
-
-  // const GetSomeData = (input: string): Awaited<Promise<GetSomeDataResult>> =>{
-    
-  //   console.log(`SomeStore.GetSomeData: ${input}`);
-
-  //   const request = new GetSomeDataRequest(input);
-  //   const result = _repo.TryGetSomeData(request)
-  //   return result;
-  // }  
+  const SaveData = (input: string): void =>{
+    SomeData.value = input;
+  }
   
   return {
-    Repo
+    SaveData
     }
-  }
-)
+})
 
 export default useSomeStore;
 export type SomeStore = Omit<

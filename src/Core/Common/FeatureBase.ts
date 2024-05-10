@@ -1,5 +1,3 @@
-
-
 export class FeatureBase<T> {
   public store: T;
 
