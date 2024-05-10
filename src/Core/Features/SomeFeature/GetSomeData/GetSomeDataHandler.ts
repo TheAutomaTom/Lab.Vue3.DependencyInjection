@@ -17,10 +17,16 @@ export class GetSomeDataHandler{
   }
 
   handle(request: GetSomeDataRequest): Awaited<Promise<GetSomeDataResult>>{
-    console.log(`GetSomeDataHandler.handle`);
+    console.log(`GetSomeDataHandler.handle: _repo.TryGetSomeData(...)`);
     
     const response= this._repo.TryGetSomeData(request);
+    
+    console.log(`GetSomeDataHandler.handle: _store.SaveData(...)`);
     this._store.SaveData(response.data);
+
+    const confirm = this._store.ReadData();    
+    console.log(`GetSomeDataHandler.handle: _store.ReadData = ${confirm}`);
+
     return response;
 
   }

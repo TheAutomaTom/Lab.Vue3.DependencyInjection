@@ -1,8 +1,10 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-
-export interface ISomeStore{
+export interface ISomeStore {
+  // SomeData: typeof ref<string>;
+  
   SaveData: (input: string) => void;
+  ReadData: () => string;
 
 }
 
@@ -10,15 +12,23 @@ export const useSomeStore = defineStore( "SomeStore", ():ISomeStore => {
 
   console.log(`SomeStore.defineStore`);
   
-  const SomeData = ref("");
+  let SomeData = "NO UPDATE YET!";
 
   const SaveData = (input: string): void =>{
-    SomeData.value = input;
+    console.log(`SomeStore.SaveData(${input})`);
+    console.log(`useSomeStore.SaveData: BEFORE ${SomeData}`);    
+    SomeData = input;    
+    console.log(`useSomeStore.SaveData: AFTER ${SomeData}`);
+  }
+
+  const ReadData = ():string =>{
+    return SomeData;
   }
   
   return {
+    ReadData,
     SaveData
-    }
+  }
 })
 
 export default useSomeStore;
