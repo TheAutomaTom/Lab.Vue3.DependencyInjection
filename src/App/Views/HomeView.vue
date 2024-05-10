@@ -1,5 +1,5 @@
 <script setup lang="ts">
-console.log(`HomeView initializing`);
+console.warn(`BEGIN HomeView initializing`);
 </script>
 <template>
   <h3>Home View</h3>  

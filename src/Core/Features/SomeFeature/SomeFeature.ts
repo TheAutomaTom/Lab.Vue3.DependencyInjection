@@ -3,7 +3,6 @@ import type { GetSomeDataHandler } from "@/Core/Features/SomeFeature/GetSomeData
 import type { SomeStore } from "@/Core/Features/SomeFeature/SomeStore";
 import { GetSomeDataRequest } from "./GetSomeData/GetSomeDataRequest";
 import type { GetSomeDataResult } from "./GetSomeData/GetSomeDataResult";
-import { DependencyInjector } from "@/App/Infra/DependencyInjector";
 
 export class SomeFeature extends FeatureBase<SomeStore>{
   
